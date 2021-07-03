@@ -1,0 +1,39 @@
+.paymentTopic {
+    padding-top: 50pt;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.amonutTopic {
+    padding-top: 45pt;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 42px;
+    color: #000000;
+}
+
+.mainTopic {
+    margin-top: 50pt;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 120px;
+    line-height: 90px;
+    color: #00A3FF;
+}
+
+.imagestyle {
+    width: 640px;
+    height: 620px;
+}
+
+.paybtn {
+    width: 200px;
+    height: 100px;
+    border-radius: 539px;
+}

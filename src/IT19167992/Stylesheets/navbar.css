@@ -1,0 +1,11 @@
+.navbarDiv{
+    background-color: purple;
+   
+   }
+   
+   
+   .navTitles:hover{
+       background: #f2e6ff;
+       color: black;
+       border-radius: 3px;
+   }

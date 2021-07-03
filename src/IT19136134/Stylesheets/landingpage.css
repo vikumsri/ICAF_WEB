@@ -1,0 +1,56 @@
+.logoBlock {
+    background: url(../images/sliitlogo.png) no-repeat center;
+    background-size: fill;
+    background-color: rgba(255, 255, 255, 0.47);
+    width: 150px;
+    height: 250px;
+    border-radius: 25px;
+    background-size: 550px 170px;
+}
+
+.bngImage {
+    background: url(../images/conference_blur.jpg) no-repeat center;
+    background-size: cover;
+    padding-right: 4vh;
+    width: 100vh;
+    height: 100vh;
+    min-height: 100%;
+    min-width: 100%;
+    margin: 0;
+}
+
+.rowstyle {
+    padding-top: 7vh;
+}
+
+.headTopic {
+    font-style: normal;
+    font-weight: 550;
+    font-size: 55px;
+    line-height: 75px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.headDate {
+    font-family: Post No Bills Colombo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 55px;
+    line-height: 75px;
+    color: #FFFFFF;
+    text-align: center;
+}
+
+.viewEvent {
+    background: rgba(44, 110, 148, 0.64);
+    border-radius: 63px;
+    width: 200px;
+    height: 55px;
+    font-family: Red Rose;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    line-height: 40px;
+    color: #FFFFFF;
+}

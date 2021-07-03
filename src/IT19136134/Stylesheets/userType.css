@@ -1,0 +1,66 @@
+.userTypeMainTopic {
+    font-family: Baloo Thambi;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 111px;
+    color: #000000;
+}
+
+.subTopic {
+    font-family: Basic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 36px;
+    line-height: 45px;
+    color: #898989;
+}
+
+.userButtonWorkshop {
+    width: 300px;
+    height: 300px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 5vh;
+    border: 5px solid rgba(191, 191, 191, 0.52);
+    background-image: url('https://media.giphy.com/media/DCMZYL14SScKmQrWjK/giphy.gif');
+    background-position: center;
+    backface-visibility: hidden;
+}
+
+.userButtonResearch {
+    width: 300px;
+    height: 300px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 5vh;
+    border: 5px solid rgba(191, 191, 191, 0.52);
+    background-image: url('https://media.giphy.com/media/26FPC5oAdfeFPkQQE/giphy.gif');
+    background-position: center;
+    backface-visibility: hidden;
+}
+
+.userButtonAttendee {
+    width: 300px;
+    height: 300px;
+    margin-left: 35px;
+    margin-right: 35px;
+    margin-top: 5vh;
+    border: 5px solid rgba(191, 191, 191, 0.52);
+    background-image: url('https://media.giphy.com/media/CHJuwLeJvKpp6wRirX/giphy.gif');
+    background-position: center;
+    backface-visibility: hidden;
+}
+
+.userLabel {
+    font-family: Basic;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 30px;
+    color: #000000;
+    margin-top: 6.5vh;
+    line-height: 150%;
+    margin-right: 40px;
+    display: block;
+    text-align: center;
+}

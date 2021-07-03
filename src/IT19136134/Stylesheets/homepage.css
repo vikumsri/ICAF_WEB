@@ -1,0 +1,73 @@
+.homeTopic {
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 75px;
+    color: #FF7518;
+    text-align: center;
+}
+
+.homeDate {
+    font-family: Post No Bills Colombo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 40px;
+    line-height: 75px;
+    color: white;
+    text-align: center;
+}
+
+.homesliit {
+    font-family: Post No Bills Colombo;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 75px;
+    color: white;
+    text-align: center;
+}
+
+.rowstyle {
+    padding-top: 7vh;
+}
+
+.aboutTopic {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: orangered;
+    text-align: center;
+    font-size: 18px;
+}
+
+.aboutParagragh {
+    font-family: 'Times New Roman', Times, serif;
+    font-style: normal;
+    font-weight: normal;
+    color: black;
+    text-align: center;
+}
+
+.logoSliit {
+    background-size: fill;
+    background-size: 200px 200px;
+    display: flex;
+    justify-content: center;
+    align-self: center;
+}
+
+.callsOpen {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 35px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.callsOpen:hover {
+    color: red
+}
+
+.divHomeImage {
+    background: url(../images/homebk.jpg) no-repeat center;
+    background-size: cover;
+}

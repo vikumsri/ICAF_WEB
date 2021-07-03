@@ -1,0 +1,19 @@
+.box1{
+    width: 60ch;
+    margin-top: 10vh;
+    border-width: 0ch;
+    background: rgba(255, 0, 0, 0);
+}
+
+.box2{
+    width: 60ch;
+    height: 60ch;
+    margin-top: 10vh;
+    border-width: 0ch;
+    background: rgba(255, 0, 0, 0);
+}
+
+.titleText{
+    font-size: 18px;
+    font-weight: bold;
+}

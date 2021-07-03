@@ -1,0 +1,44 @@
+.keySpeakerBlock {
+    background: url(../images/keyspeaker.png) no-repeat center;
+    background-size: fill;  
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    background-size: 100px 100px;
+
+}
+
+.workshopBlock {
+    background: url(../images/training.png) no-repeat center;
+    background-size: fill;  
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    background-size: 100px 100px;
+}
+
+.editWorkShopBlock {
+    background: url(../images/edit.png) no-repeat center;
+    background-size: fill;  
+    width: 100px;
+    height: 100px;
+    border-radius: 25px;
+    background-size: 100px 100px;
+}
+.cardCss{
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+.gobtn{
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    /*border-radius: 93px;*/
+    width: 175px;
+    height: 55px;
+    margin-top: 2vh;
+    text-align: center;
+    
+    
+
+}
+
