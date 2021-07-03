@@ -5,6 +5,7 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import axios from "axios";
 import firebase from "./firebase";
 import FooterPage from "../Footer/footer-page";
+import BASEURL from '../../../../url'
 
 class ResearchUpload extends Component {
   constructor(props) {
@@ -43,7 +44,7 @@ class ResearchUpload extends Component {
   };
 
   //this is the method invokes when upload button clicks 
-  handleSave =  () => {
+  handleSave = () => {
 
     this.setState({
       componentStatus: true
@@ -53,7 +54,7 @@ class ResearchUpload extends Component {
     let bucketName = "documents";
     let file = this.state.document;
     let storageRef = firebase.storage().ref(`${bucketName}/${file.name}`);
-    let uploadTask =  storageRef.put(file)
+    let uploadTask = storageRef.put(file)
 
     uploadTask.on(firebase.storage.TaskEvent.STATE_CHANGED, () => {
       let downloadURL = uploadTask.snapshot.downloadURL;
@@ -85,7 +86,7 @@ class ResearchUpload extends Component {
 
     console.log(research);
     axios
-      .post("http://localhost:5000/research/createresearch", research)
+      .post(`${BASEURL}research/createresearch`, research)
       .then((response) => {
         console.log("Data :", response);
 

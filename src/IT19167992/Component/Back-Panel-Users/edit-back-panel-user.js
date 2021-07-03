@@ -5,6 +5,7 @@ import Dropdown from 'react-dropdown';
 import Select from 'react-select'
 import axios from 'axios'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import BASEURL from '../../../../url'
 
  
 class EditBackPanelUser extends Component {
@@ -35,7 +36,7 @@ class EditBackPanelUser extends Component {
     
     componentDidMount(){
         console.log(this.props.match.params.id);
-        axios.get(`http://localhost:5000/back-panel-user/${this.props.match.params.id}`)
+        axios.get(`${BASEURL}back-panel-user/${this.props.match.params.id}`)
         .then(response => {
        
           console.log(this.state.backPanelUser);
@@ -56,7 +57,7 @@ class EditBackPanelUser extends Component {
     }
 
     onDeleteUser(e){
-        axios.delete(`http://localhost:5000/back-panel-user/delete/${this.props.match.params.id}`)
+        axios.delete(`${BASEURL}back-panel-user/delete/${this.props.match.params.id}`)
         .then(response => {
             alert('Data Successfully Deleted.')
         })
@@ -92,7 +93,7 @@ class EditBackPanelUser extends Component {
         };
 
         console.log('Data to Send', backPanelUser)
-        axios.put(`http://localhost:5000/back-panel-user/edit/${this.props.match.params.id}`, backPanelUser)
+        axios.put(`${BASEURL}back-panel-user/edit/${this.props.match.params.id}`, backPanelUser)
         .then(response => {
             alert('Data Successfully Updated.')
         })

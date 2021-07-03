@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import navbarCss from '../../Stylesheets/navbar.css'
 import decode from "jwt-decode";
 import login from "../actions/auth";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+
 
 class navBar extends Component {
     constructor(props) {
@@ -20,6 +22,7 @@ class navBar extends Component {
     }
 
     componentDidMount() {
+        // localStorage.clear();
         const token = localStorage.getItem('UserToken');
         const user = localStorage.getItem('UserId');
 
@@ -27,13 +30,7 @@ class navBar extends Component {
 
         this.state.userToken = token;
 
-        if (token) {
-            const decodedToken = decode(token);
 
-            if (decodedToken.exp * 1000 < new Date().getTime()) {
-                this.logout(e);
-            }
-        }
 
         if (token) {
             this.state.login = 'Logout';
@@ -109,7 +106,7 @@ class navBar extends Component {
 
                             <ul className="navbar-nav navTitles">
                                 <li className="nav-item">
-                                    <a className="nav-link navbar-brand active" style={{ color: 'white' }} href="/view-agenda" >
+                                    <a className="nav-link navbar-brand active" style={{ color: 'white' }} href="/agenda" >
                                         Agenda
                                     </a>
                                 </li>

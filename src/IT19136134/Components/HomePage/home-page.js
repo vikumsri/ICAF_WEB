@@ -6,6 +6,7 @@ import FooterPage from "../Footer/footer-page";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import navBar from '../../../IT19135830/Components/ClientSideNavBar/navBar'
 import axios from "axios";
+import BASEURL from "../../../../url";
 
 class Homepage extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ class Homepage extends Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:5000/conference/get-conference-details').then(res => {
+    axios.get(`${BASEURL}conference/get-conference-details`).then(res => {
 
       console.log(res)
       this.setState({

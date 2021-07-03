@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from "reactstrap/lib/Card";
 import {Button, Col, Input, Row} from "reactstrap";
 import userCss from '../../../Stylesheets/viewUsers.css';
+import BASEURL from '../../../../../url'
 
 class keySpeaker extends Component {
     constructor(props) {
@@ -14,7 +15,7 @@ class keySpeaker extends Component {
 
     componentDidMount() {
         const userType = 'WORKSHOP PRESENTER';
-        axios.get(`http://localhost:5000/users/keyspeakers`)
+        axios.get(`${BASEURL}users/keyspeakers`)
             .then(response => {
                     console.log(response.data.data);
                     this.setState({presenters: response.data.data});

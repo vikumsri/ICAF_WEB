@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import ApproveConferenceStyles from '../../Stylesheets/approve-conference.css'
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import axios from 'axios'
+import BASEURL from '../../../../url'
 
 class ApproveConference extends Component {
     constructor(props) {
@@ -26,7 +27,7 @@ class ApproveConference extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/conference/get-conference-details').then(
+        axios.get(`${BASEURL}conference/get-conference-details`).then(
             res => {
                 console.log(res)
                 this.setState({
@@ -58,7 +59,7 @@ class ApproveConference extends Component {
                 + " ICAF Admin team"
         }
 
-        axios.put('http://localhost:5000/conference/approve-conference', data).then(res => {
+        axios.put(`${BASEURL}conference/approve-conference`, data).then(res => {
             this.props.history.push('/research-review')
         })
         //axios call to approve research paper request

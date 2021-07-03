@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import axios from 'axios'
 import { Button, Col, Row } from "reactstrap";
-
+import BASEURL from '../../../url'
 
 class ResearchReview extends Component {
     constructor(props) {
@@ -15,7 +15,7 @@ class ResearchReview extends Component {
 
     componentDidMount() {
         //make axios call to get data from the back end
-        axios.get('http://localhost:5000/reviwer/view-posts-for-review').then(res => {
+        axios.get(`${BASEURL}reviwer/view-posts-for-review`).then(res => {
 
             this.setState({
                 researchPapers: res.data

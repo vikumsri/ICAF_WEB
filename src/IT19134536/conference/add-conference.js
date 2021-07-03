@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import AddConferenceStyles from '../Stylesheet/add-conference.css'
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import axios from 'axios'
+import BASEURL from '../../../url'
 
 class conference extends Component {
     constructor(props) {
@@ -43,7 +44,7 @@ class conference extends Component {
 
         console.log(data)
 
-        axios.post('http://localhost:5000/conference/add-details', data).then((res) => {
+        axios.post(`${BASEURL}conference/add-details`, data).then((res) => {
             console.log("Conference details added sucess fully")
 
             //call the method to navigate to add key speakers page

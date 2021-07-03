@@ -3,6 +3,7 @@ import {Button,Col, Row} from "reactstrap";
 import AddUserCss from '../../Stylesheets/add-user.css'; 
 import { Player, Controls } from '@lottiefiles/react-lottie-player'; 
 import axios from 'axios';
+import BASEURL from '../../../../url'
 
 class EditAgenda extends Component {
     constructor(props) {
@@ -31,7 +32,7 @@ class EditAgenda extends Component {
         console.log(eventIdentification)
         this.setState ({ eventId : eventIdentification})
  
-        axios.get(`http://localhost:5000/agenda/${eventIdentification}`)
+        axios.get(`${BASEURL}agenda/${eventIdentification}`)
         .then(response => {
 
             console.log(response.data.data);
@@ -73,7 +74,7 @@ class EditAgenda extends Component {
 
         console.log('Data to Send', agendas);
         const eventIdentification = this.props.location.state.eventId
-        axios.put(`http://localhost:5000/agenda/edit/${eventIdentification}`, agendas)
+        axios.put(`${BASEURL}agenda/edit/${eventIdentification}`, agendas)
         .then(response => {
             alert('Data Successfully Updated.')
         })
@@ -91,7 +92,7 @@ class EditAgenda extends Component {
 
     onDeleteEvent(e){
         const eventIdentification = this.props.location.state.eventId
-        axios.delete(`http://localhost:5000/agenda/delete/${eventIdentification}`)
+        axios.delete(`${BASEURL}agenda/delete/${eventIdentification}`)
         .then(response => {
             alert('Data Successfully Deleted.')
         })

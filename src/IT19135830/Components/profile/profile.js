@@ -3,7 +3,7 @@ import axios from 'axios';
 import Card from "reactstrap/lib/Card";
 import {Button, Col, Input, Row} from "reactstrap";
 import {Controls, Player} from "@lottiefiles/react-lottie-player";
-// import userCss from '../../../Stylesheets/viewUsers.css';
+import BASEURL from '../../../../url'
 
 class profile extends Component {
     constructor(props) {
@@ -19,7 +19,7 @@ class profile extends Component {
     componentDidMount() {
         const userid = localStorage.getItem('UserId');
         console.log(userid)
-        axios.get(`http://localhost:5000/users/researcher-status/${userid}`)
+        axios.get(`${BASEURL}users/researcher-status/${userid}`)
             .then(response => {
                     console.log(response.data.data);
                     this.setState({user: response.data.data});

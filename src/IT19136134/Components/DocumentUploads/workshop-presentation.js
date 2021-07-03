@@ -5,6 +5,7 @@ import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import axios from "axios";
 import firebase from "./firebase";
 import FooterPage from "../Footer/footer-page";
+import BASEURL from '../../../../url'
 
 class WorkShopPresentationUpload extends Component {
   constructor(props) {
@@ -81,7 +82,7 @@ class WorkShopPresentationUpload extends Component {
 
     console.log(presentation);
     axios
-      .post("http://localhost:5000/proposal/createproposal", presentation)
+      .post(`${BASEURL}proposal/createproposal`, presentation)
       .then((response) => {
         console.log("Data :", response);
 

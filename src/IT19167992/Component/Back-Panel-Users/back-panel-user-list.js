@@ -1,52 +1,53 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import {Button,Col, Row} from "reactstrap";
+import { Button, Col, Row } from "reactstrap";
 import TableCss from '../../Stylesheets/table.css';
+import BASEURL from '../../../../url'
 
-class BackPanelUserList extends Component{
+class BackPanelUserList extends Component {
     constructor(props) {
         super(props);
         this.navigateToEditBackPanelUser = this.navigateToEditBackPanelUser.bind(this);
         this.state = {
-            backPanelUsers : []
+            backPanelUsers: []
         }
     }
 
-    componentDidMount(){
-        axios.get('http://localhost:5000/back-panel-user/')
-        .then(response => {
-            this.setState({ backPanelUsers : response.data.data });
-        })
+    componentDidMount() {
+        axios.get(`${BASEURL}back-panel-user/`)
+            .then(response => {
+                this.setState({ backPanelUsers: response.data.data });
+            })
     }
 
-    navigateToEditBackPanelUser(e, backPanelUserId){
+    navigateToEditBackPanelUser(e, backPanelUserId) {
         window.location = `/edit-back-panel-user/${backPanelUserId}`
     }
-    
-    render(){
-        return(
-            
-           
+
+    render() {
+        return (
+
+
             <div>
-                 <Row className='userRow'>
-                    <Col sm ='2'></Col>
-                    <Col sm ='8'>
+                <Row className='userRow'>
+                    <Col sm='2'></Col>
+                    <Col sm='8'>
                         <h1 className='userTopic'>Back Panel Users</h1>
                         <table className="table">
-                            <tr style={{borderBottom:'3px solid #ddd', background:'#341E71', color:'white'}}>
+                            <tr style={{ borderBottom: '3px solid #ddd', background: '#341E71', color: 'white' }}>
                                 <th>Full Name</th>
                                 <th>UserName</th>
                                 <th>Email</th>
                                 <th>Contact Number</th>
                                 <th>Role</th>
                                 <th></th>
-                               
-                                <hr/><hr/>
+
+                                <hr /><hr />
                             </tr>
 
 
                             {this.state.backPanelUsers.length > 0 && this.state.backPanelUsers.map((item, index) => (
-                                <tr key={index} style={{borderBottom:'2px solid #ddd'}} className='rowHover'>
+                                <tr key={index} style={{ borderBottom: '2px solid #ddd' }} className='rowHover'>
                                     <td>{item.name}</td>
                                     <td>{item.userName}</td>
                                     <td>{item.email}</td>
@@ -57,8 +58,8 @@ class BackPanelUserList extends Component{
                                             <span className='btnTxt'>Edit</span>
                                         </Button>
                                     </td>
-                                 
-                                    <hr/> <hr/>
+
+                                    <hr /> <hr />
                                 </tr>
                             ))}
 
@@ -66,12 +67,12 @@ class BackPanelUserList extends Component{
                         </table>
 
                     </Col>
-                    <Col sm ='2'></Col>
+                    <Col sm='2'></Col>
                 </Row>
             </div>
         )
     }
-    
+
 }
 
 export default BackPanelUserList;

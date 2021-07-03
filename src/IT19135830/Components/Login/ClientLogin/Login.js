@@ -1,36 +1,25 @@
-import React,{Component} from 'react'
-import {Button,Col, Row} from "reactstrap";
+import React, { Component } from 'react'
+import { Button, Col, Row } from "reactstrap";
 import axios from 'axios';
 import LoginCss from '../../../Stylesheets/login.css'
-import {Mail} from 'react-feather';
+import { Mail } from 'react-feather';
 import login from '../../actions/auth';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
-
+import BASEURL from '../../../../../url'
 
 class Login extends Component {
     constructor(props) {
         super(props);
-        this.onSubmit= this.onSubmit.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
         this.onChange = this.onChange.bind(this);
         this.navigateResearcher = this.navigateResearcher.bind(this);
-        this.navigateAttendee= this.navigateAttendee.bind(this);
-        this.navigateToRegistration= this.navigateToRegistration.bind(this);
-        this.state={
-            email:"",
-            password:"",
+        this.navigateAttendee = this.navigateAttendee.bind(this);
+        this.navigateToRegistration = this.navigateToRegistration.bind(this);
+        this.state = {
+            email: "",
+            password: "",
         }
-
-
-
     }
-    //
-    // componentDidMount(){
-    //     axios.get('http://localhost:5000)
-    // }
-
-
-
 
     onSubmit(e) {
         e.preventDefault();
@@ -39,42 +28,33 @@ class Login extends Component {
             password: this.state.password
         }
 
-        const url = axios.create({baseURL:'http://localhost:5000'});
-        // url.interceptors.request.use((req) =>{
-        //     if(localStorage.getItem('UserToken')) {
-        //         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem('UserToken')).token}`
-        //     }
-        // })
+        const url = axios.create({ baseURL: BASEURL });
+
         console.log(loginForm);
 
-        url.post('/user/client-login', loginForm)
+        url.post('user/client-login', loginForm)
             .then(response => {
                 alert('Login Successful');
-                // console.log(response.data);
+
                 let data = response.data;
                 console.log(data);
-                // localStorage.setItem("Login message", response.data.message);
-                // localStorage.setItem("UserToken", response.data.token);
 
                 localStorage.setItem("UserId", response.data.result._id);
 
                 let userType = response.data.result.type;
 
-                if(userType == 'RESEARCHER'){
+                if (userType == 'RESEARCHER') {
                     this.navigateResearcher(e);
                     localStorage.setItem("Login message", response.data.message);
                     localStorage.setItem("UserToken", response.data.token);
                 }
-                else if (userType == 'ATTENDEE'){
+                else if (userType == 'ATTENDEE') {
                     this.navigateAttendee(e);
                     localStorage.setItem("Login message", response.data.message);
                     localStorage.setItem("UserToken", response.data.token);
                     localStorage.setItem("UserId", response.data.data);
                 }
 
-
-
-                // this.navigate(e);
 
             })
             .catch(error => {
@@ -84,33 +64,33 @@ class Login extends Component {
     }
 
 
-    navigateResearcher (e){
-        window.location=('/home-page');
+    navigateResearcher(e) {
+        window.location = ('/home-page');
     }
 
-    navigateAttendee(e){
-        window.location=('/sample1');
+    navigateAttendee(e) {
+        window.location = ('/sample1');
     }
 
-    navigateToRegistration(e){
+    navigateToRegistration(e) {
         window.location = `/register`;
     }
 
 
 
-    onChange(e){
-        this.setState({[e.target.name]:e.target.value});
+    onChange(e) {
+        this.setState({ [e.target.name]: e.target.value });
     }
 
 
 
 
-    render(){
-        return(
-            <div style={{paddingTop:'1rem'}}>
+    render() {
+        return (
+            <div style={{ paddingTop: '1rem' }}>
                 <Row>
-                    <Col sm ='1'></Col>
-                    <Col sm ='5'>
+                    <Col sm='1'></Col>
+                    <Col sm='5'>
                         <h1 className='topic'>ICAF</h1>
                         <h3 className='subTopic'>International Conference on Application Frameworks</h3>
 
@@ -119,7 +99,7 @@ class Login extends Component {
                                 autoplay
                                 loop
                                 src="https://assets4.lottiefiles.com/packages/lf20_jcikwtux.json"
-                                style={{ height: '40rem', width: '40rem', paddingTop:'2rem', paddingLeft:'2rem' }}
+                                style={{ height: '40rem', width: '40rem', paddingTop: '2rem', paddingLeft: '2rem' }}
                             >
                                 <Controls visible={false} buttons={['play', 'repeat', 'frame', 'debug']} />
                             </Player>
@@ -133,21 +113,21 @@ class Login extends Component {
                             {/*<AiOutlineMail/>*/}
                             {/*<Mail size={25} className='mailIcon'/>*/}
                             <input className='input_field'
-                                   placeholder='Enter Email here'
-                                   name='email'
-                                   id='email'
-                                   value={this.state.email}
-                                   onChange={this.onChange}
+                                placeholder='Enter Email here'
+                                name='email'
+                                id='email'
+                                value={this.state.email}
+                                onChange={this.onChange}
                             >
                             </input>
                             {/*<Mail size={25}/>*/}
                             <input className='input_field'
-                                   placeholder='Enter Password here'
-                                   name = 'password'
-                                   id='password'
-                                   value={this.state.password}
-                                   onChange={this.onChange}
-                                   type='password'
+                                placeholder='Enter Password here'
+                                name='password'
+                                id='password'
+                                value={this.state.password}
+                                onChange={this.onChange}
+                                type='password'
                             >
                             </input>
 
@@ -156,14 +136,14 @@ class Login extends Component {
                                 <Col sm='4'></Col>
 
 
-                                    <a
-                                        style={{paddingTop:'1rem'}}
-                                        href="/registration"
-                                        className="loginbutton">
+                                <a
+                                    style={{ paddingTop: '1rem' }}
+                                    href="/registration"
+                                    className="loginbutton">
                                     <span className='btnTxt'>REGISTER</span>
-                                    </a>
+                                </a>
 
-                                <button className ='loginbutton'>
+                                <button className='loginbutton'>
                                     <span className='btnTxt'>LOGIN</span>
                                 </button>
 
@@ -172,7 +152,14 @@ class Login extends Component {
 
                         </form>
                     </Col>
-                    <Col sm ='2'></Col>
+                    <Col sm='2'></Col>
+                </Row>
+
+                <Row>
+                    <Col sm='10'></Col>
+                    <Col sm='2'>
+                        <a href='/admin-login'>Login as Admin</a>
+                    </Col>
                 </Row>
             </div>
         )

@@ -3,6 +3,7 @@ import { Col, Row } from "reactstrap";
 import AddConferenceStyles from '../Stylesheet/add-conference.css'
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import axios from 'axios'
+import BASEURL from '../../../url'
 
 class EditConference extends Component {
     constructor(props) {
@@ -24,7 +25,7 @@ class EditConference extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/conference/get-conference-details').then(
+        axios.get(`${BASEURL}conference/get-conference-details`).then(
             res => {
                 console.log(res)
                 this.setState({
@@ -61,7 +62,7 @@ class EditConference extends Component {
 
         console.log(data)
 
-        axios.put('http://localhost:5000/conference/update-conference-details', data).then((res) => {
+        axios.put(`${BASEURL}conference/update-conference-details`, data).then((res) => {
             console.log("Conference details updated sucessfully")
 
             //call the method to navigate to add key speakers page

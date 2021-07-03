@@ -5,6 +5,7 @@ import Dropdown from 'react-dropdown';
 import Select from 'react-select'
 import axios from 'axios'
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import BASEURL from '../../../../url'
 
 class AddBackPanelUser extends Component {
     constructor(props) {
@@ -58,7 +59,7 @@ class AddBackPanelUser extends Component {
         };
 
         console.log('Data to Send', backPanelUser)
-        axios.post('http://localhost:5000/back-panel-user/add',backPanelUser)
+        axios.post(`${BASEURL}back-panel-user/add`,backPanelUser)
         .then(response => {
             alert('Data Successfully Inserted.')
         })

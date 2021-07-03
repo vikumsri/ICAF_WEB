@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Button, Col, Row } from "reactstrap";
 import BaseStyles from '../Stylesheet/base-styles';
 import axios from 'axios'
+import BASEURL from '../../../url'
 
 class WorkShopReviewList extends Component {
     constructor(props) {
@@ -16,7 +17,7 @@ class WorkShopReviewList extends Component {
     componentDidMount() {
 
         //make axios call to get data from the back end
-        axios.get('http://localhost:5000/reviwer/view-workshop-for-review').then(res => {
+        axios.get(`${BASEURL}reviwer/view-workshop-for-review`).then(res => {
             this.setState({
                 workshoplist: res.data
             })
@@ -26,8 +27,7 @@ class WorkShopReviewList extends Component {
 
     navigateToSingleView(e, id, userId, title, description, document) {
 
-        axios.get('http://localhost:5000/user/getUserById/' + userId).then(res => {
-            console.log('+++++++++++++++')
+        axios.get(`${BASEURL}user/getUserById/` + userId).then(res => {
             console.log(res)
             let data = {
                 id: id,

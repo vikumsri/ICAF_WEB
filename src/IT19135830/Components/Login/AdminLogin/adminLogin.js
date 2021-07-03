@@ -6,7 +6,7 @@ import LoginCss from '../../../Stylesheets/login.css'
 import { Mail } from 'react-feather';
 import login from '../../actions/auth';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
+import BASEURL from '../../../../../url'
 
 
 
@@ -33,30 +33,35 @@ class AdminLogin extends Component {
         }
         // console.log(loginForm);
 
-        axios.post('http://localhost:5000/user/admin-login', loginForm)
+        axios.post(`${BASEURL}user/admin-login`, loginForm)
             .then(response => {
                 alert('Login Successful');
                 // console.log(response.data);
                 let data = response.data;
+                let userType = response.data.result.role;
                 console.log(data);
                 localStorage.setItem("Login message", response.data.message);
                 localStorage.setItem("UserToken", response.data.token);
 
-                let userType = response.data.result.type;
+                console.log(userType)
 
-                // if(userType == 'RESEARCHER'){
-                //     this.navigateResearcher(e);
-                //     localStorage.setItem("Login message", response.data.message);
-                //     localStorage.setItem("UserToken", response.data.token);
-                // }
-                // else if (userType == 'ATTENDEE'){
-                //     this.navigateAttendee(e);
-                //     localStorage.setItem("Login message", response.data.message);
-                //     localStorage.setItem("UserToken", response.data.token);
-                // }
+                if (userType == 'Reviewer') {
+                    console.log('navigating to Reviwer')
+                    this.navigate('/reviwer-dashboard')
+
+                }
+                else if (userType == 'Editor') {
+                    console.log('navigating to Editor')
+                    this.navigate('/editor-dashboard')
+
+                } else if (userType == 'Admin') {
+                    console.log('navigating to Admin')
+                    this.navigate('/dashboard')
+
+                }
 
 
-                this.navigate(e);
+
 
             })
             .catch(error => {
@@ -66,8 +71,9 @@ class AdminLogin extends Component {
     }
 
 
-    navigate(e) {
-        window.location = ('/sample1');
+    navigate(path) {
+        console.log('navigating to relevent user')
+        window.location = (path);
     }
 
 

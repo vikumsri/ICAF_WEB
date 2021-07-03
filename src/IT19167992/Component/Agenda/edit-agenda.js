@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import {Button,Col, Row} from "reactstrap";
 import AddUserCss from '../../Stylesheets/add-user.css';
 import "react-datepicker/dist/react-datepicker.css";
- 
+import BASEURL from '../../../../url'
+
 import axios from 'axios';
 
 class EditAgenda extends Component {
@@ -27,7 +28,7 @@ class EditAgenda extends Component {
 
     componentDidMount(){
         console.log("userId :",this.props.match.params.id);
-        axios.get(`http://localhost:5000/agenda/${this.props.match.params.id}`)
+        axios.get(`${BASEURL}agenda/${this.props.match.params.id}`)
         .then(response => {
        
           console.log(this.state.agendas.event);

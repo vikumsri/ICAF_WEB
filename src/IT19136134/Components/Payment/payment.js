@@ -5,6 +5,7 @@ import { Col, Row } from "reactstrap";
 import User from "../../Stylesheets/payment.css";
 import "@fontsource/oleo-script-swash-caps";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
+import BASEURL from '../../../../url'
 
 //function Payment() {
 class Payment extends Component {
@@ -26,7 +27,7 @@ class Payment extends Component {
       id: token.id,
     };
     axios
-      .post("http://localhost:5000/stripe/charge", details)
+      .post(`${BASEURL}stripe/charge`, details)
       .then(() => {
         alert("Payment Success");
       })

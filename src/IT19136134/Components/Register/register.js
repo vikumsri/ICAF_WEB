@@ -4,6 +4,7 @@ import RegisterCss from "../../Stylesheets/register.css";
 import axios from "axios";
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
 import FooterPage from "../Footer/footer-page";
+import BASEURL from '../../../../url'
 
 const initialState = {
   id: "",
@@ -40,7 +41,7 @@ class Register extends Component {
     };
     console.log("User Data", user);
     axios
-      .post("http://localhost:5000/user/create", user)
+      .post(`${BASEURL}/user/create`, user)
       .then((response) => {
         console.log("Data :", response);
         this.state.id = response.data.data._id;
@@ -62,7 +63,7 @@ class Register extends Component {
 
   render() {
     return (
-      <div>
+      <div data-testid="registration_test">
         <Row>
           <Col sm="1"></Col>
           <Col sm="5">

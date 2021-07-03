@@ -5,6 +5,7 @@ import TableCss from '../../Stylesheets/table.css';
 import cardImgCss from '../../Stylesheets/cardImg.css'
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import AdminNavBar from '../Admin-NavBar/admin-navBar'
+import BASEURL from '../../../../url'
 
 class Dashboard extends Component {
     constructor(props) {
@@ -19,7 +20,7 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://localhost:5000/agenda')
+        axios.get(`${BASEURL}agenda`)
             .then(response => {
                 this.setState({ agenda: response.data.data });
                 console.log(this.state.agenda)
@@ -28,21 +29,21 @@ class Dashboard extends Component {
                 alert(error.message)
             })
 
-        axios.get(`http://localhost:5000/counter/Atendee-count`)
+        axios.get(`${BASEURL}counter/Atendee-count`)
             .then(response => {
                 this.setState({ atendeeCount: response.data.data })
             })
             .catch(error => {
                 alert(error.message)
             })
-        axios.get(`http://localhost:5000/counter/workshop-count`)
+        axios.get(`${BASEURL}counter/workshop-count`)
             .then(response => {
                 this.setState({ workshopPresenters: response.data.data })
             })
             .catch(error => {
                 alert(error.message)
             })
-        axios.get(`http://localhost:5000/counter/researcher-count`)
+        axios.get(`${BASEURL}counter/researcher-count`)
             .then(response => {
                 this.setState({ researchers: response.data.data })
             })

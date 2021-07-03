@@ -3,7 +3,7 @@ import { Button, Col, Row } from "reactstrap";
 import BaseStyles from '../Stylesheet/base-styles';
 import axios from 'axios';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
-
+import BASEURL from '../../../url'
 
 class ReviewWorkShopPresenter extends Component {
     constructor(props) {
@@ -54,7 +54,7 @@ class ReviewWorkShopPresenter extends Component {
         }
 
         //axios call to decline research paper request
-        axios.put('http://localhost:5000/reviwer/decline-work-shop', data).then(res => {
+        axios.put(`${BASEURL}reviwer/decline-work-shop`, data).then(res => {
             this.props.history.push('/work-shop-list')
         })
     }
@@ -71,12 +71,11 @@ class ReviewWorkShopPresenter extends Component {
             message: "Dear " + this.state.researcher + " \n" +
                 "Your Workshop proposal has been approved for the ICAF"
                 + " \n\n"
-                + 'Click here to complete payment : http://localhost:1234/'
                 + "\n\n Best Regards, \n"
                 + " ICAF reviwer team"
         }
 
-        axios.put('http://localhost:5000/reviwer/accept-work-shop', data).then(res => {
+        axios.put(`${BASEURL}reviwer/accept-work-shop`, data).then(res => {
             this.props.history.push('/work-shop-list')
         })
         //axios call to approve research paper request

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import footer from "../../Stylesheets/footer.css";
+import BASEURL from '../../../../url'
 
 class FooterPage extends Component {
   render() {

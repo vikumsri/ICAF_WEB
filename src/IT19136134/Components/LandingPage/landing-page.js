@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import home from "../../Stylesheets/landingpage.css";
 import "@fontsource/poiret-one"; // Defaults to weight 400.
+import BASEURL from '../../../../url'
 
 class LandingPage extends Component {
   constructor(props) {

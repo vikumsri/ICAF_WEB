@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import axios from "axios";
 //import { Player, Controls } from "@lottiefiles/react-lottie-player";
-
+import BASEURL from '../../../../url'
 import User from "../../Stylesheets/userType.css";
 
 class UserType extends Component {
@@ -32,7 +32,7 @@ class UserType extends Component {
     console.log(userType.type);
     console.log(this.state.id);
     axios
-      .put(`http://localhost:5000/user/update/${this.state.id}`, userType)
+      .put(`${BASEURL}user/update/${this.state.id}`, userType)
       .then((response) => {
         console.log("User:", response.data);
       })

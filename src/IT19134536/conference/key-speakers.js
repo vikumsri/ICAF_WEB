@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Col, Row } from "reactstrap";
 import KeySpeakerStyles from '../Stylesheet/key-speaker.css';
 import { Player, Controls } from "@lottiefiles/react-lottie-player";
-c
+import BASEURL from '../../../url'
 
 class AddKeySpeaker extends Component {
     constructor(props) {
@@ -42,7 +42,7 @@ class AddKeySpeaker extends Component {
 
         console.log(data)
 
-        axios.post('http://localhost:5000/conference/add-key-speakers', data).then((res) => {
+        axios.post(`${BASEURL}conference/add-key-speakers`, data).then((res) => {
             console.log("Key speaker details added sucess fully")
 
             //call the method to navigate to add key speakers page

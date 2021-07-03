@@ -3,6 +3,7 @@ import {Button,Col, Row} from "reactstrap";
 import AddUserCss from '../../Stylesheets/add-user.css'; 
 import axios from 'axios';
 import { Player, Controls } from '@lottiefiles/react-lottie-player';
+import BASEURL from '../../../../url'
 
 class AddAgenda extends Component {
     constructor(props) {
@@ -35,7 +36,7 @@ class AddAgenda extends Component {
 
         }
         console.log('Data to Send', agenda);
-        axios.post('http://localhost:5000/agenda/add',agenda)
+        axios.post(`${BASEURL}agenda/add`,agenda)
         .then(response => {
             alert('Data Successfully Inserted.')
         })

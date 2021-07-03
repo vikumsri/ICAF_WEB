@@ -3,7 +3,10 @@ import axios from 'axios';
 import {Button,Col, Row} from "reactstrap";
 import TableCss from '../../Stylesheets/table.css';
 import cardImgCss from '../../Stylesheets/cardImg.css'
-
+import navBar from '../../../IT19135830/Components/ClientSideNavBar/navBar';
+import FooterPage from "../../../IT19136134/Components/Footer/footer-page";
+import {Route} from "react-router-dom";
+import BASEURL from '../../../../url'
 
 class Agenda extends Component {
     constructor(props) {
@@ -16,7 +19,7 @@ class Agenda extends Component {
     }
 
     componentDidMount(){
-        axios.get('http://localhost:5000/agenda')
+        axios.get(`${BASEURL}agenda`)
         .then(response => {
             this.setState({ agenda : response.data.data });
             console.log(this.state.agenda)
@@ -34,7 +37,8 @@ class Agenda extends Component {
     render(){
         return(
  
-            <div>   
+            <div>
+                <Route component={navBar}></Route>
                 <Row className='userRow'>
                     <Col sm ='2'></Col>
                     <Col sm ='8'>

@@ -3,6 +3,7 @@ import axios from 'axios';
 import Card from "reactstrap/lib/Card";
 import {Button, Col, Input, Row} from "reactstrap";
 import userCss from '../../../Stylesheets/viewUsers.css';
+import BASEURL from '../../../../../url'
 
 class Researchers extends Component {
     constructor(props) {
@@ -15,7 +16,7 @@ class Researchers extends Component {
 
     componentDidMount() {
         const userType = 'RESEARCHER';
-        axios.get(`http://localhost:5000/users/user-type/${userType}`)
+        axios.get(`${BASEURL}users/user-type/${userType}`)
             .then(response => {
                     console.log(response.data.data);
                     this.setState({researchers: response.data.data});

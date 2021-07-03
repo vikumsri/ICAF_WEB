@@ -5,6 +5,7 @@ import {Button, Col, Input, Row} from "reactstrap";
 import userCss from '../../../Stylesheets/viewUsers.css';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import navBar from "../../ClientSideNavBar/navBar";
+import BASEURL from '../../../../../url'
 
 class presenter extends Component {
     constructor(props) {
@@ -20,7 +21,7 @@ class presenter extends Component {
 
     componentDidMount() {
         const status = 'ACCEPTED';
-        axios.get(`http://localhost:5000/users/presenter/${status}`)
+        axios.get(`${BASEURL}users/presenter/${status}`)
             .then(response => {
                     console.log(response.data.data);
                     console.log(response.data.info);
@@ -81,7 +82,7 @@ class presenter extends Component {
                             {this.state.presenters.length > 0 && this.state.presenters.map((item, index) => (
                                 <tr key={index} style={{borderBottom:'2px solid #ddd'}} className='rowHover' >
                                     <td style={{paddingLeft:'2rem'}}>{item.fullName}</td>
-                                    <td><button onClick={(e) => this.onClick(e, item._id)}>hi</button></td>
+                                    <td><button onClick={(e) => this.onClick(e, item._id)}>View Presentation</button></td>
 
                                     <hr/> <hr/>
                                 </tr>
